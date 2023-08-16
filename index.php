@@ -11,8 +11,8 @@
     <h1 style="display: flex; ">Todo app</h1>
     <div style="flex-direction:row;">
         <form action="create-todo.php" method="POST">
-            <input label="enter-todo-item" type = "text" name="task"/>
-            <button >Add</button>
+            <input placeholder="enter-todo-item" type = "text" name="task"/>
+            <button>Add</button>
         </form>
     </div>
 </body>
