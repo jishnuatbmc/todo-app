@@ -11,9 +11,20 @@
     <h1 style="display: flex; ">Todo app</h1>
     <div style="flex-direction:row;">
         <form action="create-todo.php" method="POST">
-            <input placeholder="enter-todo-item" type = "text" name="task"/>
+            <input placeholder="enter-todo-item" type="text" name="task" />
             <button>Add</button>
         </form>
+    </div>
+
+    <!-- list-down-todo  -->
+    <div class="container" style="display: flex;padding-top:2rem;width:600px;">
+
+        <div style="display: flex;flex-direction:row;justify-content:space-between;width:100%;">
+            <td>do something</td>
+            <button>update</button>
+            <button>delete</button>
+        </div>
+
     </div>
 </body>
 
