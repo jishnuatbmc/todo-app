@@ -1,15 +1,16 @@
 <?php
-    // db config
-    $db_host = 'localhost';
-    $db_user = 'root';
-    $db_password = '';
-    $db_name = "todo";
+// db config
+$db_host = "localhost";
+$db_port = "3306";
+$db_user = "root";
+$db_password = "";
+$db_name = "todo";
 
-    // create db connection
-    $conn = new mysqli($db_host,$db_user,$db_password,$db_name);
+// create db connection
+$conn = mysqli_connect($db_host . ":" . $db_port, $db_user, $db_password, $db_name);
 
-    // check for connection error 
-    if($conn->connect_error){
-        die("connection failed :".$conn->connect_error);
-    }
-?>
+// Check connection
+if (mysqli_connect_errno()) {
+    echo "Failed to connect to MySQL: " . mysqli_connect_errno();
+    exit();
+}
