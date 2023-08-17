@@ -24,18 +24,18 @@
 
     <!-- list-down-todo  -->
     <div class="container" style="display: flex;padding-top:2rem;width:600px;">
-        <table>
+        <table style="width: 100%;">
             <tbody>
                 <?php
                 while ($row = mysqli_fetch_array($todoData)) {
 
 
                 ?>
-                    <tr>
-                        <td><?php echo $row['id']; ?></td>
-                        <td><?php echo $row['task']; ?></td>
-                        <td><a href="update-todo.php? ID=<?php echo $row['id'] ?>">update</a></td>
-                        <td><a href="delete-todo.php? ID=<?php echo $row['id'] ?>">delete</a></td>
+                    <tr >
+                        <td style="width: 10%;"><?php echo $row['id']; ?></td>
+                        <td style="width: 70%;"><?php echo $row['task']; ?></td>
+                        <td style="width: 10%;"><a href="update-todo.php? ID=<?php echo $row['id'] ?>">update</a></td>
+                        <td style="width: 10;"><a href="delete-todo.php? ID=<?php echo $row['id'] ?>">delete</a></td>
                     </tr>
 
                 <?php
