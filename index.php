@@ -16,14 +16,33 @@
         </form>
     </div>
 
+    <!-- get the data from database -->
+    <?php
+    include('database.php');
+    $todoData = mysqli_query($conn, "select * from todo;");
+    ?>
+
     <!-- list-down-todo  -->
     <div class="container" style="display: flex;padding-top:2rem;width:600px;">
+        <table>
+            <tbody>
+                <?php
+                while ($row = mysqli_fetch_array($todoData)) {
 
-        <div style="display: flex;flex-direction:row;justify-content:space-between;width:100%;">
-            <td>do something</td>
-            <button>update</button>
-            <button>delete</button>
-        </div>
+
+                ?>
+                    <tr>
+                        <td><?php echo $row['id']; ?></td>
+                        <td><?php echo $row['task']; ?></td>
+                        <td><a href="update-todo.php? ID=<?php echo $row['id'] ?>">update</a></td>
+                        <td><a href="delete-todo.php? ID=<?php echo $row['id'] ?>">delete</a></td>
+                    </tr>
+
+                <?php
+                }
+                ?>
+            </tbody>
+        </table>
 
     </div>
 </body>
