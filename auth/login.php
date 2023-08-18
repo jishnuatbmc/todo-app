@@ -8,12 +8,12 @@
 </head>
 
 <body>
-    <div class="container">
-        <h2>Login</h2>
-        <form action="login/handle-login.php" method="POST" class="login-form">
-            <input name="email" placeholder="Email" />
-            <input name="password" placeholder="Password" />
-            <button>Login</button>
+    <div class="container" style="display: flex; margin:auto;justify-content:center;flex-direction:column;">
+        <form action="login/handle-login.php" method="POST" class="login-form" style="display: flex;margin:auto;flex-direction:column;">
+            <h2>Login</h2>
+            <input style="margin-top:1em;" name="email" placeholder="Email" />
+            <input style="margin-top:1em;" name="password" placeholder="Password" />
+            <button style="margin-top: 2em;">Login</button>
         </form>
     </div>
 </body>

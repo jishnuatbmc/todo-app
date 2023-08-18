@@ -8,13 +8,13 @@
 </head>
 
 <body>
-    <div class="container">
-        <h2>Register</h2>
-        <form action="register/handle-register.php" class="register-form" method="post">
-            <input type="text" name="email" placeholder="Email">
-            <input type="password" name="password" placeholder="Password">
-            <input type="password" name="confirm_password" placeholder="Confirm Password">
-            <button>Register</button>
+    <div class="container" style="display: flex; margin:auto;justify-content:center;flex-direction:column;">
+        <form action="register/handle-register.php" class="register-form" method="post" style="display: flex;margin:auto;flex-direction:column;">
+            <h2>Register</h2>
+            <input style="margin-top:1em;" type="text" name="email" placeholder="Email">
+            <input style="margin-top:1em;" type="password" name="password" placeholder="Password">
+            <input style="margin-top:1em;" type="password" name="confirm_password" placeholder="Confirm Password">
+            <button style="margin-top: 2em;">Register</button>
         </form>
 
     </div>
