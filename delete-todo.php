@@ -10,4 +10,4 @@ $id = $_GET['ID'];
 $delete_todo = mysqli_prepare($conn, "DELETE FROM todo WHERE id = ?;");
 mysqli_stmt_bind_param($delete_todo, 'i', $id);
 mysqli_stmt_execute($delete_todo);
-header("location:index.php");
+header("location:./index.php");

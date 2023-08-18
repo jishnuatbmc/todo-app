@@ -10,5 +10,8 @@ include('database.php');
 $create_todo = mysqli_prepare($conn, "INSERT INTO todo(task) VALUES (?);"); // statement preparation
 mysqli_stmt_bind_param($create_todo, 's', $task); // binding
 $task = $_POST['task'];
-mysqli_stmt_execute($create_todo);
+
+if (strlen($task) != 0) {
+    mysqli_stmt_execute($create_todo);
+}
 header("location:index.php");
