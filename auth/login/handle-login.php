@@ -1,31 +1,49 @@
 <?php
+// initialize session
+//session_start();
+
 // db config
 include_once "../../database.php";
 
+// get current password
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-//echo $email . $password;
 // handle user login logic
 
 // queries 
-
 // get user 
-$sql_stmt_get_user = "SELECT * FROM `users` WHERE email = ?";
+$sql_stmt_get_user = "SELECT id,email,password FROM `users` WHERE email = ?";
 $get_user = mysqli_prepare($conn, $sql_stmt_get_user);
 mysqli_stmt_bind_param($get_user, 's', $email);
 
-$userData = mysqli_stmt_get_result($get_user);
-$user = mysqli_fetch_array($userData);
-// case 1 : user doesnot exist
-if (!$user) {
-    echo 'user doesnot exist, please <a href="../register.php">register</a>';
-} else {
+// attempt to execute the query 
+if (mysqli_stmt_execute($get_user)) {
+    /* store the result */
+    mysqli_stmt_store_result($get_user);
 
-// case 2 : user exist 
-    // case 2.1 : password match : allow user 
+    if (mysqli_stmt_num_rows($get_user) == 1) {
+        // handle user login after checking password
+        mysqli_stmt_bind_result($get_user, $id, $email, $hashed_password);
 
-    // case 2.2 : password missmatch : redirect with error message
+        // do fetch 
+        if (mysqli_stmt_fetch($get_user)) {
+            if (password_verify($password, $hashed_password)) {
+                // verified password 
+                // then create/start a session
+                session_start();
 
-    echo $user['email'] . $user['password'];
+                $_SESSION["loggedin"] = true;
+                $_SESSION["id"] = $id;
+                $_SESSION["email"] = $email;
+
+                // redirect
+                header("location:index.php");
+            } else {
+                echo "password miss match, try again!";
+            }
+        }
+    } else {
+        echo 'user doesnot exist. please proceed to <a href="../register.php">register</a>';
+    }
 }
