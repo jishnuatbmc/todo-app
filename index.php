@@ -18,8 +18,17 @@
 
     <!-- get the data from database -->
     <?php
+    session_start();
     include('database.php');
-    $todoData = mysqli_query($conn, "select * from todo;");
+    
+    // get user_id from session
+    $user_id = $_SESSION['user_id'];
+
+    // create prepare statement to pick user todo items 
+    $sql_stmnt_get_todos = "SELECT * FROM todo WHERE user_id = ?";
+    $get_todos = mysqli_prepare($conn,$sql_stmnt_get_todos);
+    mysqli_stmt_bind_param($get_todos,'i',$user_id);
+    $todoData = mysqli_query($conn, "select * from todo ;");
     ?>
 
     <!-- list-down-todo  -->
