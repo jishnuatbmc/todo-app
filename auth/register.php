@@ -15,6 +15,7 @@
             <input style="margin-top:1em;" type="password" name="password" placeholder="Password">
             <input style="margin-top:1em;" type="password" name="confirm_password" placeholder="Confirm Password">
             <button style="margin-top: 2em;">Register</button>
+            <a style="margin-top:1em;" href="login.php">Login ?</a>
         </form>
 
     </div>

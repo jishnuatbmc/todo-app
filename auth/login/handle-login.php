@@ -38,7 +38,7 @@ if (mysqli_stmt_execute($get_user)) {
                 $_SESSION["email"] = $email;
 
                 // redirect
-                header("location:/index.php");
+                header("location:/");
             } else {
                 echo "password miss match, try again!";
             }

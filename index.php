@@ -8,14 +8,6 @@
 </head>
 
 <body style="display: flex; align-items:center; justify-content:center; flex-direction:column;">
-    <h1 style="display: flex; ">Todo app</h1>
-    <div style="flex-direction:row;">
-        <form action="create-todo.php" method="POST">
-            <input placeholder="enter-todo-item" type="text" name="task" />
-            <button>Add</button>
-        </form>
-    </div>
-
     <!-- get the data from database -->
     <?php
     session_start();
@@ -31,6 +23,23 @@
     mysqli_stmt_execute($get_todos);
     $todoData = mysqli_stmt_get_result($get_todos);
     ?>
+
+
+    <!-- header  -->
+    <?php
+    require "utils/check.php";
+    ?>
+    <form action="utils/logout.php" method="post">
+        <button>logout</button>
+    </form>
+
+    <h1 style="display: flex; ">Todo app</h1>
+    <div style="flex-direction:row;">
+        <form action="create-todo.php" method="POST">
+            <input placeholder="enter-todo-item" type="text" name="task" />
+            <button>Add</button>
+        </form>
+    </div>
 
     <!-- list-down-todo  -->
     <div class="container" style="display: flex;padding-top:2rem;width:600px;">
