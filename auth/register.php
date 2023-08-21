@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <div class="container" style="display: flex; margin:auto;justify-content:center;flex-direction:column;">
+    <div class="container" style="display: flex; margin:auto;justify-content:center;flex-direction:column; min-height:100vh; align-items:center">
         <form action="register/handle-register.php" class="register-form" method="post" style="display: flex;margin:auto;flex-direction:column;">
             <h2>Register</h2>
             <input style="margin-top:1em;" type="text" name="email" placeholder="Email">

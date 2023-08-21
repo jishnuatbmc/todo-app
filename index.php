@@ -29,7 +29,8 @@
     <?php
     require "utils/check.php";
     ?>
-    <form action="utils/logout.php" method="post">
+    <form style="justify-content:flex-end; display:flex; flex-direction:row; background-color:grey; width:100%;" action="utils/logout.php" method="post">
+        <p><?php echo "user : " . $_SESSION['email'] ?></p>
         <button>logout</button>
     </form>
 
