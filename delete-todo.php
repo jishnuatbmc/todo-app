@@ -1,13 +1,13 @@
 <?php
-
+session_start();
+echo session_id();
 include "database.php";
 $id = $_GET['ID'];
-
-// old-method
-// mysqli_query($conn, "DELETE FROM `todo` WHERE id = $id;");
-
+$user_id = $_SESSION['user_id'];
 // delete-via-prepared-statement
-$delete_todo = mysqli_prepare($conn, "DELETE FROM todo WHERE id = ?;");
-mysqli_stmt_bind_param($delete_todo, 'i', $id);
+
+$sql_stmnt_delete_todo = "DELETE FROM todo WHERE id = ? AND user_id = ?;";
+$delete_todo = mysqli_prepare($conn, $sql_stmnt_delete_todo);
+mysqli_stmt_bind_param($delete_todo, 'ii', $id, $user_id);
 mysqli_stmt_execute($delete_todo);
 header("location:./index.php");
