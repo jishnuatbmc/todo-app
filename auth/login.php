@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <div class="container" style="display: flex; margin:auto;justify-content:center;flex-direction:column;">
+    <div class="container" style="display: flex; margin:auto;justify-content:center;flex-direction:column;align-items:center; min-height:100vh;">
         <form action="login/handle-login.php" method="POST" class="login-form" style="display: flex;margin:auto;flex-direction:column;">
             <h2>Login</h2>
             <input style="margin-top:1em;" type="text" name="email" placeholder="Email" />
